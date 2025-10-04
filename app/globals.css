@@ -1,0 +1,124 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Converting to Tailwind v4 @theme syntax for design tokens */
+@theme inline {
+  /* Light mode colors */
+  --color-background: #ffffff;
+  --color-foreground: #374151;
+  --color-card: #fefce8;
+  --color-card-foreground: #374151;
+  --color-popover: #ffffff;
+  --color-popover-foreground: #374151;
+  --color-primary: #d97706;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #ec4899;
+  --color-secondary-foreground: #ffffff;
+  --color-muted: #f9fafb;
+  --color-muted-foreground: #374151;
+  --color-accent: #ec4899;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #be123c;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #374151;
+  --color-input: #fefce8;
+  --color-ring: rgba(217, 119, 6, 0.5);
+
+  /* Chart colors */
+  --color-chart-1: #d97706;
+  --color-chart-2: #0891b2;
+  --color-chart-3: #be123c;
+  --color-chart-4: #ec4899;
+  --color-chart-5: #fefce8;
+
+  /* Border radius */
+  --radius: 0.5rem;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Sidebar colors */
+  --color-sidebar: #f9fafb;
+  --color-sidebar-foreground: #374151;
+  --color-sidebar-primary: #d97706;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #ec4899;
+  --color-sidebar-accent-foreground: #ffffff;
+  --color-sidebar-border: #374151;
+  --color-sidebar-ring: rgba(217, 119, 6, 0.5);
+}
+
+.dark {
+  --color-background: #111827;
+  --color-foreground: #f9fafb;
+  --color-card: #1f2937;
+  --color-card-foreground: #f9fafb;
+  --color-popover: #1f2937;
+  --color-popover-foreground: #f9fafb;
+  --color-primary: #d97706;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #ec4899;
+  --color-secondary-foreground: #ffffff;
+  --color-muted: #374151;
+  --color-muted-foreground: #9ca3af;
+  --color-accent: #ec4899;
+  --color-accent-foreground: #ffffff;
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: #ffffff;
+  --color-border: #374151;
+  --color-input: #1f2937;
+  --color-ring: rgba(217, 119, 6, 0.5);
+  --color-chart-1: #d97706;
+  --color-chart-2: #f9fafb;
+  --color-chart-3: #9ca3af;
+  --color-chart-4: #374151;
+  --color-chart-5: #1f2937;
+  --color-sidebar: #374151;
+  --color-sidebar-foreground: #f9fafb;
+  --color-sidebar-primary: #d97706;
+  --color-sidebar-primary-foreground: #ffffff;
+  --color-sidebar-accent: #ec4899;
+  --color-sidebar-accent-foreground: #ffffff;
+  --color-sidebar-border: #4b5563;
+  --color-sidebar-ring: rgba(217, 119, 6, 0.5);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* Added premium styling for welcome screen */
+@layer utilities {
+  .card-premium {
+    @apply bg-white rounded-2xl shadow-sm border border-gray-100 transition-all duration-200 hover:shadow-md hover:scale-[1.01];
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .logo-area {
+    @apply bg-gradient-to-b from-card to-background rounded-2xl p-6 shadow-lg border border-border;
+  }
+
+  .featured-dish {
+    @apply rounded-2xl shadow-lg overflow-hidden border-2 border-primary/20 transition-all duration-300 hover:shadow-xl hover:scale-[1.02];
+  }
+
+  /* Added iOS safe area support for bottom padding */
+  .pb-safe {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+}
